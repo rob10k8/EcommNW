@@ -1,92 +1,41 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Community Registration Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      padding: 40px;
-      max-width: 600px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 1.2rem;
-    }
-    label {
-      display: block;
-      margin-bottom: 20px;
-      font-weight: normal;
-    }
-    .input-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    input[type="text"] {
-      flex: 1;
-      padding: 12px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    .checkbox-group {
-      margin-bottom: 20px;
-    }
-    .checkbox-group label {
-      margin-bottom: 10px;
-    }
-    input[type="checkbox"] {
-      margin-right: 10px;
-    }
-    button {
-      padding: 12px 24px;
-      background: black;
-      color: white;
-      border: none;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .footer {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #777;
-      text-align: right;
-    }
-    .footer span {
-      color: #f0c;
-      font-weight: bold;
-    }
-  </style>
+  <title>Community Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="container">
+    <form id="communityForm">
+      <h2>Where do you work?</h2>
+      <div class="row">
+        <input type="text" placeholder="Company" name="company" required>
+        <input type="text" placeholder="Job Title" name="job" required>
+      </div>
 
-  <form id="registerForm">
-    <div class="input-row">
-      <input type="text" id="company" name="company" placeholder="Company" required>
-      <input type="text" id="job" name="job" placeholder="Job Title" required>
-    </div>
-
-    <h2>Please confirm below that you have read and agree with our core community values.</h2>
-
-    <div class="checkbox-group">
+      <h3>Please confirm below that you agree with our core community values:</h3>
       <label><input type="checkbox" required> The leadership team reserves the right to suspend or remove members who violate these rules after fair warning and review.</label>
-      <label><input type="checkbox" required> This is a community for learning, connection and growth - we do not welcome cold selling or pitching, either digital or in person. Build relationships first.</label>
-      <label><input type="checkbox" required> We are open to all ecommerce and ecommerce adjacent professionals, job seekers, entrepreneurs, investors and service providers.</label>
+      <label><input type="checkbox" required> This is a community for learning, connection and growth - we do not welcome cold selling or pitching, either digital or in person.</label>
+      <label><input type="checkbox" required> We are open to all ecommerce and ecommerce-adjacent professionals, job seekers, entrepreneurs, investors and service providers.</label>
       <label><input type="checkbox" required> We welcome and celebrate individuals of all races, ethnicities, genders, sexual orientations, abilities and backgrounds.</label>
-    </div>
 
-    <button type="submit">Register →</button>
-  </form>
+      <button type="submit">Register →</button>
+    </form>
+    <div id="confirmation" style="display:none;">
+      <h3>Thank you for registering!</h3>
+      <p>Your form has been submitted.</p>
+    </div>
+  </div>
 
   <script>
-    document.getElementById("registerForm").addEventListener("submit", function(e) {
+    document.getElementById("communityForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      alert("Registration submitted successfully!");
+      document.getElementById("communityForm").style.display = "none";
+      document.getElementById("confirmation").style.display = "block";
     });
   </script>
-
 </body>
 </html>
